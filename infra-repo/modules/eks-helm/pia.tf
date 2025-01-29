@@ -111,8 +111,7 @@ resource "aws_iam_policy" "myapp_secrets" {
           "secretsmanager:ListSecretVersionIds"
         ]
         Resource =  [
-          "arn:aws:secretsmanager:us-east-1:767397954823:secret:mysql_cred-aqnnmC",
-          "arn:aws:secretsmanager:us-east-1:767397954823:secret:db_endpoint-h7pcLc"
+          "arn:aws:secretsmanager:us-east-1:767397954823:secret:atlas_secret-O4Mwcs"
         ]
       }
     ]
@@ -124,3 +123,30 @@ resource "aws_iam_role_policy_attachment" "myapp_secrets" {
   role       = aws_iam_role.myapp_secrets.name
 }
 
+
+############# ebs csi driver ############
+
+
+resource "aws_iam_role" "ebs_csi_driver" {
+  name               = "${var.cluster_name}-ebs-csi-driver"
+  assume_role_policy = data.aws_iam_policy_document.aws_lbc.json
+}
+
+resource "aws_iam_role_policy_attachment" "ebs_csi_driver" {
+  policy_arn = "arn:aws:iam::aws:policy/service-role/AmazonEBSCSIDriverPolicy"
+  role       = aws_iam_role.ebs_csi_driver.name
+}
+
+resource "aws_eks_pod_identity_association" "ebs_csi_driver" {
+  cluster_name    = var.cluster_name
+  namespace       = "kube-system"
+  service_account = "ebs-csi-controller-sa"
+  role_arn        = aws_iam_role.ebs_csi_driver.arn
+}
+
+resource "aws_eks_addon" "ebs_csi_driver" {
+  cluster_name             = var.cluster_name
+  addon_name               = "aws-ebs-csi-driver"
+  addon_version            = "v1.38.1-eksbuild.2"
+  service_account_role_arn = aws_iam_role.ebs_csi_driver.arn
+}

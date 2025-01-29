@@ -5,13 +5,13 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-    - host: api.{{ .Values.ingress.domain }} # Replace with your domain
+    - host: www.{{ .Values.ingress.domain }} 
       http:
         paths:
           - path: /
             pathType: Prefix
             backend:
               service:
-                name: {{ .Release.Name }}-{{ .Values.fruit.image }}-svc  # Replace with your frontend service name
+                name: {{ .Release.Name }}-{{ .Values.fruit.image }}-svc  
                 port:
-                  number: {{ .Values.fruit.port }}  # Match the service's exposed port
+                  number: {{ .Values.fruit.port }}  

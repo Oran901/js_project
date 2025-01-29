@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: "{{ .Values.global.chart.repo }}"
     targetRevision: "{{ .Values.global.chart.targetRevision }}"
-    path: app-chart
+    path: git-ops/app-chart
     helm:
         valueFiles:
           - $values/environments/{{ .Values.global.environment}}/values.yaml
