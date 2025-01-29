@@ -1,0 +1,14 @@
+fruit:
+  repo: "oran901"
+  image: "fruit"
+  tag: "latest"
+  port: 3000
+  replica: 2
+
+ingress:
+  domain: "oyad.store"
+
+secret:
+  db: db-cred
+
+environment: "main"

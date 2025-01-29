@@ -1,0 +1,17 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: {{ .Release.Name }}-{{ .Values.fruit.image }}-ingress
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: api.{{ .Values.ingress.domain }} # Replace with your domain
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: {{ .Release.Name }}-{{ .Values.fruit.image }}-svc  # Replace with your frontend service name
+                port:
+                  number: {{ .Values.fruit.port }}  # Match the service's exposed port

@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}-{{ .Values.fruit.image }} 
+  labels:
+    app: {{ .Release.Name }}-{{ .Values.fruit.image }}
+spec:
+  replicas: {{ .Values.fruit.replica }}
+  selector:
+    matchLabels:
+      app: {{ .Release.Name }}-{{ .Values.fruit.image }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Release.Name }}-{{ .Values.fruit.image }}
+    spec:
+      restartPolicy: Always
+      containers:
+        - name: {{ .Values.fruit.image }} 
+          image: {{ .Values.fruit.repo }}/{{ .Values.fruit.image }}:{{ .Values.fruit.tag }}
+          env:
+            - name: MYSQL_HOST
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.secret.db }}
+                  key: MYSQL_HOST
+            - name: MYSQL_USER
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.secret.db }}
+                  key: MYSQL_USER
+            - name: MYSQL_DB
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.secret.db }}
+                  key: MYSQL_DB
+            - name: MYSQL_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.secret.db }}
+                  key: MYSQL_PASSWORD
+          ports:
+            - containerPort: 3000 
+              protocol: TCP

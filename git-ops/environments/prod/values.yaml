@@ -1,0 +1,14 @@
+global:
+  environment: prod
+  chart:
+    # -- Github repositroy it resides in
+    repo: https://github.com/Oran901/gitOpsRepo.git
+    # -- Branch/Commit/Tag that we are looking at
+    targetRevision: HEAD 
+  # -- Points towards the values file used by the environment
+
+front:
+  tag: "c72649a0e74e0b78fa3b9aa7f926b07c894a3584"
+
+back:
+  tag: "c72649a0e74e0b78fa3b9aa7f926b07c894a3584"
