@@ -40,7 +40,7 @@ jobs:
         # runs docker-compose and npm tests
         docker-compose -f app/docker-compose.yaml up -d
         sleep 5
-        docker exec -it fruit-container npm test
+        docker exec fruit-container npm test
 
               
     
