@@ -10,6 +10,10 @@ on:
     types:
       - closed  
 
+env:                 
+  DOCKER_REPOSITORY: fruit
+  DOCKER_REGISTRY: oran901
+
 jobs:
   update-values:
     runs-on: ubuntu-latest
