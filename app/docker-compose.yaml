@@ -16,7 +16,7 @@ services:
   fruit:
     build:
       context: ./src
-    image: fruit
+    image: oran901/fruit
     container_name: fruit-container
     environment:
       DB_PASSWORD: "password"
