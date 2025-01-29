@@ -19,6 +19,9 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
+
+    - name: Docker Setup Compose
+      uses: docker/setup-compose-action@v1.0.0
     
     - name: Docker Login
       uses: docker/login-action@v3.3.0
@@ -26,8 +29,6 @@ jobs:
         username: ${{ secrets.USERNAME }}
         password: ${{ secrets.PASSWORD }}
     
-    - name: Docker Setup Compose
-      uses: docker/setup-compose-action@v1.0.0
     
     - name: Docker-compose build and test
       id: docker-compose-up
