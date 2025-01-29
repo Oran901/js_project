@@ -26,7 +26,7 @@ jobs:
 
       - name: Update image tag in values.yaml
         run: |
-          yq e '.main.tag = "${{ github.sha }}"' -i git-ops/environments/main/values.yaml
+          yq e '.fruit.tag = "${{ github.sha }}"' -i git-ops/environments/main/values.yaml
 
       - name: Check changes
         run: cat git-ops/environments/main/values.yaml

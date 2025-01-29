@@ -6,5 +6,5 @@ global:
     # -- Branch/Commit/Tag that we are looking at
     targetRevision: HEAD
   # -- Points towards the values file used by the environment
-main:
+fruit:
   tag: "5065761e2412ad7076ec3dbe05222f957f5fc650"
