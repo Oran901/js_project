@@ -80,7 +80,7 @@ jobs:
             yq e '.main.tag = "${{ github.sha }}"' -i git-ops/environments/main/values.yaml
 
       - name: Check changes
-        run: cat environments/dev/values.yaml
+        run: cat git-ops/environments/main/values.yaml
 
       - name: Commit and push changes using GitHub CLI
         env:
