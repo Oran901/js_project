@@ -4,8 +4,7 @@ global:
     # -- Github repositroy it resides in
     repo: https://github.com/Oran901/js_project.git
     # -- Branch/Commit/Tag that we are looking at
-    targetRevision: HEAD 
+    targetRevision: HEAD
   # -- Points towards the values file used by the environment
-
 main:
-  tag: "latest"
+  tag: "4f95bfe08eca0f9e3861d5d66280634a51f7dcdd"
