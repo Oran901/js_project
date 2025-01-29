@@ -14,9 +14,7 @@ services:
       - ./init-mongodb/init.js:/docker-entrypoint-initdb.d/init.js
   
   fruit:
-    build:
-      context: ./src
-    image: fruit
+    image: oran901/fruit
     container_name: fruit-container
     labels:
       - "com.centurylinklabs.watchtower.enable=true"
