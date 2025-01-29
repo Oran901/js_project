@@ -11,7 +11,7 @@ services:
       - "27017:27017"
     volumes:
       - mongo-data:/data/db
-      - ./init-mongodb/init.js:/docker-entrypoint-initdb.d/init.js
+      - ../app/init-mongodb/init.js:/docker-entrypoint-initdb.d/init.js
   
   fruit:
     image: oran901/fruit

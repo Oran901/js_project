@@ -3,9 +3,9 @@ const Item = require('../models/items.js');
 
 const router = express.Router();
 
-// other fruit for testing 
+// other fruit for testing 🍏 🍎
 const fruitEmojis = {
-    apples: '🍎',
+    apples: '🍏',
     bananas: '🍌',
     oranges: '🍊',
     avocados: '🥑',
