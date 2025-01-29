@@ -5,6 +5,6 @@ global:
     repo: https://github.com/Oran901/js_project.git
     # -- Branch/Commit/Tag that we are looking at
     targetRevision: HEAD
-  # -- Points towards the values file used by the environment
+    # -- Points towards the values file used by the environment
 fruit:
-  tag: "5065761e2412ad7076ec3dbe05222f957f5fc650"
+  tag: "9ca262b23fd5ad7a7c84657657660856ba6efa87"
