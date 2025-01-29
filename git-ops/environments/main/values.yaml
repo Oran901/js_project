@@ -7,8 +7,5 @@ global:
     targetRevision: HEAD 
   # -- Points towards the values file used by the environment
 
-front:
-  tag: "latest"
-
-back:
+main:
   tag: "latest"

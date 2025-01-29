@@ -82,11 +82,10 @@ jobs:
       - name: Check changes
         run: cat git-ops/environments/main/values.yaml
 
-      - name: Commit and push changes using GitHub CLI
-        env:
-            GH_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+      - name: Commit and push changes
         run: |
-            gh auth setup-git
-            git add git-ops/environments/main/values.yaml
-            git commit -m "Update image tag to ${{ github.sha }}"
-            git push
+          git config user.name "Oran901"
+          git config user.email "${{ secrets.EMAIL }}"  
+          git add .
+          git commit -m "Update backend image to ${{ github.sha }}"
+          git push 
