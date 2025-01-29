@@ -8,7 +8,7 @@ const fruitEmojis = {
     apples: '🍎',
     bananas: '🍌',
     oranges: '🍊',
-    avocados: '🥝',
+    avocados: '🥑',
 };
 
 
