@@ -18,14 +18,27 @@ services:
       context: ./src
     image: fruit
     container_name: fruit-container
+    labels:
+      - "com.centurylinklabs.watchtower.enable=true"
     environment:
       DB_PASSWORD: "password"
       DB_USERNAME: "root"
       DB_HOST: "mongo-container"
     ports:
-      - "3000:3000"
+      - "80:3000"
     depends_on:
       - mongo  
+
+  watchtower:
+    image: containrrr/watchtower
+    container_name: watchtower
+    restart: always
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      - WATCHTOWER_POLL_INTERVAL=30  
+      - WATCHTOWER_CLEANUP=true       
+      - WATCHTOWER_LABEL_ENABLE=true  
 
 volumes:
   mongo-data:

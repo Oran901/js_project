@@ -27,13 +27,12 @@ module "ec2_instance" {
 
     sudo apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin docker-compose git -y
     git clone https://github.com/Oran901/js_project.git
-    docker-compose -f js_project/app/docker-compose.yaml up -d
+    docker-compose -f js_project/ec2-infra/docker-compose-ec2.yaml up -d
   EOF
 
 
   tags = {
     Terraform   = "true"
-    Environment = "dev"
   }
 }
 
