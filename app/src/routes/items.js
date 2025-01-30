@@ -6,7 +6,7 @@ const router = express.Router();
 // other fruit for testing 🍏 🍎 🥝 🥑 🍊 🍌
 const fruitEmojis = {
     apples: '🍎',
-    bananas: '🍌',
+    bananas: '🥝',
     oranges: '🍊',
     avocados: '🥑',
 };
@@ -21,8 +21,8 @@ router.get('/', async (req, res) => {
 
         // Generate a string of emojis for each fruit
         const emojiResponse = items.map(item => {
-            const emoji = fruitEmojis[item.name] || '❓'; // Get the emoji or fallback to '❓'
-            return `${emoji} `.repeat(item.qty).trim(); // Repeat the emoji based on qty
+            const emoji = fruitEmojis[item.name] || '❓'; 
+            return `${emoji} `.repeat(item.qty).trim(); 
         });
 
         // Join all the emoji strings and return as HTML
