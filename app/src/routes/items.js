@@ -7,7 +7,7 @@ const router = express.Router();
 const fruitEmojis = {
     apples: '🍎',
     bananas: '🍌',
-    oranges: '🍊',
+    oranges: '🥝',
     avocados: '🥑',
 };
 
