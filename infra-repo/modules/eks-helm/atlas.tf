@@ -53,5 +53,5 @@ initdbScripts:
 EOF
   ]
 
-  depends_on = [ aws_eks_addon.ebs_csi_driver ]
+  depends_on = [ helm_release.ingress-nginx ]
 }
