@@ -2,12 +2,15 @@ resource "helm_release" "mongodb" {
   name             = "${var.project}-mongodb"
   repository       = "oci://registry-1.docker.io/bitnamicharts"
   chart            = "mongodb"
-  version = "16.4.2"
+  version          = "16.4.2"
   namespace        = "mongodb"
   create_namespace = true
 
   values = [
     <<EOF
+metrics:
+  enabled: true
+
 auth:
   enabled: false
 
@@ -53,5 +56,5 @@ initdbScripts:
 EOF
   ]
 
-  depends_on = [ helm_release.ingress-nginx ]
+  depends_on = [helm_release.ingress-nginx]
 }

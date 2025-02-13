@@ -7,14 +7,14 @@ resource "helm_release" "ingress-nginx" {
   namespace        = "ingress"
   create_namespace = true
 
-   set {
+  set {
     name  = "controller.service.type"
     value = "ClusterIP"
   }
 
 
 
-  depends_on = [ helm_release.aws_lbc ]
+  depends_on = [helm_release.aws_lbc]
 }
 
 resource "kubectl_manifest" "nginx_test_ingress" {

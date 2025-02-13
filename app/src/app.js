@@ -10,6 +10,7 @@ const db_url = process.env.DB_URL || 'mongodb://localhost:27017';
 
 // Middleware
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 // MongoDB connection
 mongoose.connect(db_url, { useNewUrlParser: true, useUnifiedTopology: true })

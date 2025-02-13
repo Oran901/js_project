@@ -11,17 +11,17 @@ resource "helm_release" "kube-promethrus-stack" {
     yamlencode({
       grafana = {
         ingress = {
-          enabled          = true
+          enabled = true
           annotations = {
             "kubernetes.io/ingress.class" = "nginx"
           }
-          hosts = [ "grafana.${var.domain_name}"] 
+          hosts = ["grafana.${var.domain_name}"]
         }
       }
     })
   ]
 
-  depends_on = [ helm_release.ingress-nginx ]
+  depends_on = [helm_release.ingress-nginx]
 }
 
 
