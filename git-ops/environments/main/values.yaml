@@ -7,4 +7,4 @@ global:
     targetRevision: HEAD
     # -- Points towards the values file used by the environment
 fruit:
-  tag: "180f22f5246eb0732ef2287344d006326bbd58c6"
+  tag: "54f50c4098cb62935b735460a42251e4e9ed8435"
