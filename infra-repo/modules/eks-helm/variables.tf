@@ -21,32 +21,32 @@ variable "localAdminAccount" {
 
 variable "domain_name" {
   description = "domain name"
-  type = string
+  type        = string
 }
 
 variable "hostedZoneID" {
   description = "hosted zone id"
-  type = string
-  
+  type        = string
+
 }
 
 variable "cluster_name" {
   description = "eks cluster name"
-  type = string
+  type        = string
 }
 
 variable "oidc_provider" {
   description = "oidc provider url without https://"
-  type = string
+  type        = string
 }
 
 variable "oidc_provider_arn" {
   description = "oidc provider arn"
-  type = string
+  type        = string
 }
 
 variable "vpc_id" {
   description = "vpc id"
-  type = string
+  type        = string
 }
 

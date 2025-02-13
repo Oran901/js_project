@@ -1,5 +1,5 @@
 resource "aws_eks_addon" "pod_identity" {
-  cluster_name  = var.cluster_name 
+  cluster_name  = var.cluster_name
   addon_name    = "eks-pod-identity-agent"
   addon_version = "v1.3.4-eksbuild.1"
 }
@@ -67,7 +67,7 @@ resource "helm_release" "aws_lbc" {
     value = var.vpc_id
   }
 
-  depends_on = [ aws_eks_addon.pod_identity ]
+  depends_on = [aws_eks_addon.pod_identity]
 }
 
 
@@ -110,7 +110,7 @@ resource "aws_iam_policy" "myapp_secrets" {
           "secretsmanager:DescribeSecret",
           "secretsmanager:ListSecretVersionIds"
         ]
-        Resource =  [
+        Resource = [
           "arn:aws:secretsmanager:us-east-1:767397954823:secret:atlas_secret-O4Mwcs"
         ]
       }

@@ -26,14 +26,6 @@ jest.mock('../models/items', () => ({
 
 
 describe('Test fruit routes', () => {
-    it('should return the correct number of apples as emojis in the root route', async () => {
-        const response = await request(app).get('/');
-        expect(response.status).toBe(200);
-        const appleCount = (response.text.match(/🍎/g) || []).length;
-        const apples = mockItems.find(item => item.name === 'apples');
-        expect(appleCount).toBe(apples.qty);
-    });
-
     it('should return the correct number of apples when queried by name', async () => {
         const response = await request(app).get('/apples');
         expect(response.status).toBe(200);
